@@ -11,12 +11,12 @@ $ruang = mysqli_query($mysqli, "SELECT * FROM ruang");
 
 $waktu = mysqli_query($mysqli, "SELECT * FROM waktu");
 
-$jadwal = mysqli_query($mysqli, "SELECT jadwal.id,makul.nama_mk,waktu.hari,waktu.mulai_pukul,waktu.selesai_pukul,ruang.kode_ruang,dosen.nama_dsn,mhs.nama_mhs 
-FROM (((((jadwal INNER JOIN makul on jadwal.kd_makul = makul.kode_mk) 
-INNER JOIN waktu on jadwal.kd_waktu = waktu.id) 
-INNER JOIN ruang on jadwal.kd_ruang = ruang.kode_ruang) 
-INNER JOIN dosen on jadwal.nip = dosen.nip) 
-INNER JOIN mhs on jadwal.nim = mhs.nim)");
+$jadwal = mysqli_query($mysqli, "SELECT jadwal.id,makul.nama_mk,waktu.hari,waktu.mulai_pukul,waktu.selesai_pukul,ruang.kode_ruang,dosen.nip,mhs.nim 
+FROM (((((jadwal INNER JOIN makul ON jadwal.kode_mk = makul.kode_mk) 
+INNER JOIN waktu ON jadwal.kd_waktu = waktu.id) 
+INNER JOIN ruang ON jadwal.kode_ruang = ruang.kode_ruang) 
+INNER JOIN dosen ON jadwal.nip = dosen.nip) 
+INNER JOIN mhs ON jadwal.nim = mhs.nim)");
 
 ?>
 
